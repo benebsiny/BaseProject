@@ -34,5 +34,5 @@ int getTriangleType(int a, int b, int c) {
     else if (a * a + b * b < c * c) {
         return -1;
     }
-    return -3;
+    return -87;
 }
