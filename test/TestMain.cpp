@@ -1,6 +1,7 @@
 #include "../src/main.h"
 #include <assert.h>
 
+// Test
 void testGetTriangleType() {
     assert(getTriangleType(3, 4, 5) == 0);
 }
