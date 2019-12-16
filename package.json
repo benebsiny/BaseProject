@@ -1,0 +1,28 @@
+{
+  "name": "baseproject",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/benebsiny/BaseProject.svg?branch=master)](https://travis-ci.org/benebsiny/BaseProject)\r [![codecov](https://codecov.io/gh/benebsiny/BaseProject/branch/master/graph/badge.svg)](https://codecov.io/gh/benebsiny/BaseProject)",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benebsiny/BaseProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benebsiny/BaseProject/issues"
+  },
+  "homepage": "https://github.com/benebsiny/BaseProject#readme",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-static": "^5.0.0"
+  }
+}
