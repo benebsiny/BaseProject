@@ -5,4 +5,15 @@ h1 {
 
 img {
     height: 300px;
+    cursor: pointer;
+}
+
+h4 {
+    cursor: pointer;
+}
+
+.filter-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
