@@ -4,3 +4,13 @@ $.getJSON('../news.json', (data)=>{
         $(`#title-${i}`).text(data[i]['title']);
     }
 })
+
+$('img').on('click', function () {
+    const id = $(this).attr('id').match(/img-(.*)/)[1];
+    location.href = `/${id}`
+})
+
+$('h4').on('click', function (){
+    const id = $(this).attr('id').match(/title-(.*)/)[1]
+    location.href = `/${id}`
+})
