@@ -17,3 +17,14 @@ a, a:hover {
     top: 0;
     right: 0;
 }
+
+.donate-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.donate-money {
+    position: absolute;
+
+}

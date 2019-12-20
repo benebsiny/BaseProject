@@ -41,3 +41,114 @@ $('.save-keyword-btn').on('click', ()=>{
 $('.filter-btn').on('click', ()=>{
     $('#keyword-name').val(localStorage.getItem('keyword'));
 })
+
+$('.donate-submit').on('click', ()=>{
+    const cardNumber = $('.card-number').val();
+    const cardissuer = $('.card-issuer').val();
+    if (cardissuer === 'Visa Card')
+        if((cardNumber / 1000000000000000 % 10) !== 4)
+        {
+            $('.error-msg-cardnumber').text('輸入卡號錯誤');
+        }
+        else
+        {
+            test(cardNumber)
+        }
+    else if(cardissuer === 'Master Card')
+    {
+        let x, y;
+        x = cardNumber[0];
+        y = cardNumber[1];
+
+        if(x === '5')
+        {
+           if(y < '0' || y > '7')
+            {
+                $('.error-msg-cardnumber').text('輸入卡號錯誤');
+            }
+            else
+            {
+                test(cardNumber)
+            }
+        }
+        else
+        {
+            $('.error-msg-cardnumber').text('輸入卡號錯誤');
+        }
+           
+    }  
+    else if(cardissuer === 'American Express')
+    {
+        let x, y;
+        x = (cardNumber / 1000000000000000 % 10);
+        y = (cardNumber / 100000000000000 % 10);
+        if(x !== 3)
+        {
+            $('.error-msg-cardnumber').text('輸入卡號錯誤');
+             if(y !==4 || y !== 7)
+            {
+                $('.error-msg-cardnumber').text('輸入卡號錯誤');
+            }
+            else
+            {
+                test(cardNumber)
+            }
+        }
+           
+    }
+    else if(cardissuer === 'other')
+    {
+        test(cardNumber)
+    }
+    console.log(cardNumber);
+})
+
+function CardNumtest(cardNumber)
+{
+    let i, j,  doble_sum = 0, single_sum = 0, sum = 0;  
+    let cardnum_N = new Array();
+    let card_times = new Array();
+
+    // card_times[0] = parseInt(cardNumber.Substring(0,4));
+    card_times[0] = parseInt(cardNumber/1000000000000)%10000;
+    card_times[1] = parseInt(cardNumber/100000000)%10000;
+    card_times[2] = parseInt(cardNumber/10000)%10000;
+    card_times[3] = parseInt(cardNumber)%10000;
+
+    for(i = 0;i < 4;i++)
+    {   
+        console.log(card_times[i])
+        cardnum_N[0] = parseInt(card_times[i]/1000)%10;
+        cardnum_N[1] = parseInt(card_times[i]/100)%10;
+        cardnum_N[2] = parseInt(card_times[i]/10)%10;
+        cardnum_N[3] = parseInt(card_times[i])%10;
+        console.log(cardnum_N[0])
+        console.log(cardnum_N[1])
+        console.log(cardnum_N[2])
+        console.log(cardnum_N[3])
+        doble_sum = parseInt((2*cardnum_N[0])/10)+parseInt((2*cardnum_N[2])/10)+parseInt((2*cardnum_N[0])%10)+parseInt((2*cardnum_N[2])%10);
+        signal_sum = cardnum_N[1] + cardnum_N[3];
+        sum += (doble_sum + single_sum);
+        
+        
+    }
+    console.log(sum)
+    return(sum%10);
+    
+}
+
+function test(cardNumber)
+{
+    let last_N;
+    last_N = CardNumtest(cardNumber)
+    if(last_N === 0 )
+    {
+        document.writeln("<h1>正確</h1>");
+    }
+    else
+    {
+        $('.error-msg-cardnumber').text('輸入卡號錯誤');
+    }
+}
+
+
