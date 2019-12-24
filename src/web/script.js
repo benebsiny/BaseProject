@@ -42,66 +42,126 @@ $('.filter-btn').on('click', ()=>{
     $('#keyword-name').val(localStorage.getItem('keyword'));
 })
 
+
+
 $('.donate-submit').on('click', ()=>{
     const cardNumber = $('.card-number').val();
     const cardissuer = $('.card-issuer').val();
-    if (cardissuer === 'Visa Card')
-        if((cardNumber / 1000000000000000 % 10) !== 4)
-        {
-            $('.error-msg-cardnumber').text('輸入卡號錯誤');
-        }
-        else
-        {
-            test(cardNumber)
-        }
-    else if(cardissuer === 'Master Card')
-    {
-        let x, y;
-        x = cardNumber[0];
-        y = cardNumber[1];
 
-        if(x === '5')
+    const cardname = $('.card-name').val();
+    const cardphone = $('.card-phone').val();
+    const cardcvc2 = $('.card-cvc2').val();
+    const carddate = $('.card-date').val();
+    const cardemail = $('.card-email').val();
+    const cardmoney = $('.card-money').val();
+    console.log(cardmoney);
+    if(cardname !== '' && cardphone !== '' && cardcvc2!== '' && carddate !== '' && cardemail !== '' )
+    {
+        tel(cardphone);
+        email(cardemail);
+        cvc2(cardcvc2);
+        CardNumview(cardNumber, cardissuer);
+        console.log(tel(cardphone));
+        console.log(email(cardemail));
+        console.log(cvc2(cardcvc2));
+        console.log(test(cardNumber));
+        
+        if(tel(cardphone) === 1 && email(cardemail) ===1 && cvc2(cardcvc2) === 1 && test(cardNumber) === 1)
         {
-           if(y < '0' || y > '7')
+            if(cardmoney >! 500)
             {
-                $('.error-msg-cardnumber').text('輸入卡號錯誤');
+                alert("成功捐款");
             }
             else
+            {   
+                alert("捐款失敗-超出信用額度");
+            }        
+        }   
+    }
+    else
+    {   
+        alert("警告!! 輸入資料不能為空");
+    } 
+})
+
+
+function CardNumview(cardNumber, cardissuer)
+{
+    if(cardNumber.length === 16)
+        {
+            if (cardissuer === 'Visa Card')
+                if((cardNumber / 1000000000000000 % 10) !== 4)
+                {
+                    $('.error-msg-cardnumber').text('輸入卡號錯誤');
+                    $('.correct-msg-cardnumber').text('');
+                }
+                else
+                {
+                    test(cardNumber)
+                }
+            else if(cardissuer === 'Master Card')
+            {
+                let x, y;
+                x = cardNumber[0];
+                y = cardNumber[1];
+
+                if(x === '5')
+                {
+                if(y < '0' || y > '7')
+                    {
+                        $('.error-msg-cardnumber').text('輸入卡號錯誤');
+                        $('.correct-msg-cardnumber').text('');
+                    }
+                    else
+                    {
+                        test(cardNumber)
+                    }
+                }
+                else
+                {
+                    $('.error-msg-cardnumber').text('輸入卡號錯誤');
+                    $('.correct-msg-cardnumber').text('');
+                }
+                
+            }  
+            else if(cardissuer === 'American Express')
+            {
+                let x, y;
+                x = (cardNumber / 1000000000000000 % 10);
+                y = (cardNumber / 100000000000000 % 10);
+                if(x !== 3)
+                {
+                    $('.error-msg-cardnumber').text('輸入卡號錯誤');
+                    $('.correct-msg-cardnumber').text('');
+                    if(y !==4 || y !== 7)
+                    {
+                        $('.error-msg-cardnumber').text('輸入卡號錯誤');
+                        $('.correct-msg-cardnumber').text('');
+                    }
+                    else
+                    {
+                        test(cardNumber)
+                    }
+                }
+                
+            }
+            else if(cardissuer === 'other')
             {
                 test(cardNumber)
             }
+            console.log(cardNumber); 
         }
         else
         {
-            $('.error-msg-cardnumber').text('輸入卡號錯誤');
+            $('.error-msg-cardnumber').text('輸入卡號錯誤'); 
+            $('.correct-msg-cardnumber').text('');
         }
-           
-    }  
-    else if(cardissuer === 'American Express')
-    {
-        let x, y;
-        x = (cardNumber / 1000000000000000 % 10);
-        y = (cardNumber / 100000000000000 % 10);
-        if(x !== 3)
-        {
-            $('.error-msg-cardnumber').text('輸入卡號錯誤');
-             if(y !==4 || y !== 7)
-            {
-                $('.error-msg-cardnumber').text('輸入卡號錯誤');
-            }
-            else
-            {
-                test(cardNumber)
-            }
-        }
-           
-    }
-    else if(cardissuer === 'other')
-    {
-        test(cardNumber)
-    }
-    console.log(cardNumber);
-})
+}
+
+
+
+
+
 
 function CardNumtest(cardNumber)
 {
@@ -139,16 +199,79 @@ function CardNumtest(cardNumber)
 
 function test(cardNumber)
 {
+    var x;
     let last_N;
     last_N = CardNumtest(cardNumber)
     if(last_N === 0 )
     {
-        document.writeln("<h1>正確</h1>");
+        // document.("<h1>正確</h1>");
+        // alert("成功捐款");
+        $('.correct-msg-cardnumber').text('輸入卡號正確');
+        $('.error-msg-cardnumber').text('');
+        x = 1;
     }
     else
     {
         $('.error-msg-cardnumber').text('輸入卡號錯誤');
+        $('.correct-msg-cardnumber').text('');
+        x = -1;
     }
+    return x;
 }
 
 
+
+
+function tel(cardphone)
+{   
+    var x;
+    if((cardphone.length) !== 10 )
+    {
+        $('.error-msg-tel').text('輸入電話格式錯誤');
+        $('.correct-msg-tel').text('');
+        x = -1;
+    }
+    else
+    {
+        $('.correct-msg-tel').text('輸入電話格式正確');
+        $('.error-msg-tel').text('');
+        x = 1;
+    }
+    return x;
+}
+
+function email(cardemail)
+{
+    if(cardemail.indexOf('@') === -1)
+    {
+        var x;
+        $('.error-msg-email').text('輸入信箱格式錯誤');
+        $('.correct-msg-email').text('');
+        x = -1;
+    }
+    else
+    {
+        $('.correct-msg-email').text('輸入信箱格式正確');
+        $('.error-msg-email').text('');
+        x = 1;
+    }
+    return x;
+}
+
+function cvc2(cardcvc2)
+{
+    var x;
+    if((cardcvc2.length) !== 3 )
+    {
+        $('.error-msg-cardcvc2').text('輸入檢查碼格式錯誤');
+        $('.correct-msg-cardcvc2').text('');
+        x = -1;
+    }
+    else
+    {
+        $('.correct-msg-cardcvc2').text('輸入檢查碼格式正確');
+        $('.error-msg-cardcvc2').text('');
+        x = 1;
+    }
+    return x;
+}
