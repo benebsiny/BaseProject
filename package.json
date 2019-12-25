@@ -23,7 +23,9 @@
   "homepage": "https://github.com/benebsiny/BaseProject#readme",
   "dependencies": {
     "@koa/router": "^8.0.5",
+    "jquery": "^3.4.1",
     "koa": "^2.11.0",
+    "koa-hbs": "^1.0.0",
     "koa-static": "^5.0.0"
   }
 }

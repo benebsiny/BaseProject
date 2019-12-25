@@ -30,5 +30,5 @@ for url in urls:
     newsDicts.append(newsDict)
     count += 1
 
-with open('./src/web/news.json', 'w', encoding='utf8') as f:
+with open('./src/news.json', 'w', encoding='utf8') as f:
     json.dump(newsDicts, f, indent=4, ensure_ascii=False)
