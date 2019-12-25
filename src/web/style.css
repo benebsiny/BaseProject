@@ -8,8 +8,8 @@ img {
     cursor: pointer;
 }
 
-h4 {
-    cursor: pointer;
+a, a:hover {
+    color: black !important;
 }
 
 .filter-btn {

@@ -1,11 +1,22 @@
-if(localStorage.getItem('keyword')!==null){
-    var keyword = localStorage.getItem('keyword');
-    if(keyword==='') keyword = null;
+let keywords = [];
+if (localStorage.getItem('keyword') !== null) {
+    let keyword = localStorage.getItem('keyword');
+    if (keyword === '') keywords = [];
+    else keywords = keyword.split(" ");
 }
 
-$.getJSON('../news.json', (data)=>{
-    for(let i=0, k=0; i<10; i++){
-        if(!data[i]['title'].includes(keyword)){
+$.getJSON('../news.json', (data) => {
+    for (let i = 0, k = 0; i < 10; i++){
+        let filter = 0;
+        for (keyword of keywords) {
+            if (data[i]['title'].includes(keyword) || data[i]['content'].includes(keyword)) {
+                filter = 1;
+                break;
+            }
+        }
+
+        if (!filter) {
+            $(`#a-${k}`).attr({'href': `./${i}`})
             $(`#img-${k}`).attr({'src': data[i]['image'], 'title': data[i]['title']});
             $(`#title-${k}`).attr({'title': data[i]['title']}).text(data[i]['title']);
             k++;
@@ -13,14 +24,12 @@ $.getJSON('../news.json', (data)=>{
     }
 })
 
-$('img').on('click', function () {
-    const id = $(this).attr('id').match(/img-(.*)/)[1];
-    location.href = `/${id}`
-})
-
-$('h4').on('click', function (){
-    const id = $(this).attr('id').match(/title-(.*)/)[1]
-    location.href = `/${id}`
+$(document).on('keypress', (event) => {
+    if (event.which === 13) {
+        if ($('#keyword-modal').is(':visible')) {
+            localStorage.setItem('keyword', $('#keyword-name').val());
+        }
+    }
 })
 
 $('.save-keyword-btn').on('click', ()=>{
