@@ -6,7 +6,7 @@ if (localStorage.getItem('keyword') !== null) {
 }
 
 $.getJSON('../news.json', (data) => {
-    for (let i = 0, k = 0; i < 10; i++){
+    for (let i = 0, k = 0; k < 10; i++){
         let filter = 0;
         for (keyword of keywords) {
             if (data[i]['title'].includes(keyword) || data[i]['content'].includes(keyword)) {
