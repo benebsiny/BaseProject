@@ -43,6 +43,7 @@ $('.filter-btn').on('click', ()=>{
 })
 
 
+/////////////////////////////////////////////////////
 
 $('.donate-submit').on('click', ()=>{
     const cardNumber = $('.card-number').val();
