@@ -24,10 +24,9 @@ a, a:hover {
     left: 0;
 }
 
-.donate-money {
+/* .donate-money {
     position: absolute;
-
-}
+} */
 
 i { 
     position: absolute; 
@@ -97,10 +96,11 @@ i {
     display:inline-block;
   }
 
-  .form-group-cvcs input {
+  .form-group-cvc2 input {
     text-indent: 20px;
   }
 
+  
 .card-cvc2 {
     background:#FFFFFF;
     width:75px;
@@ -111,7 +111,7 @@ i {
     display:inline-block;
   }
 
-  .form-group-issuer input {
+  .form-group-issuer  {
     text-indent: 20px;
   }
 
@@ -131,4 +131,33 @@ i {
 
 .card-date {
     width:175px;
+}
+
+select{
+    padding:8px 5px;
+    color:#333;
+    width:200px;
+  }
+
+ .fa{
+    font-family: "Microsoft JhengHei";
+    font-weight:200;
+  }
+
+  input:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+input{
+    outline-style: none ;
+    border: 1px solid #ccc; 
+    border-radius: 3px;
+    font-family: "Microsoft JhengHei";
+}
+
+.donate-money.active {
+    background-color: #333;
 }

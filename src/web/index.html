@@ -16,6 +16,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
      <script src="https://kit.fontawesome.com/ed623280d6.js" crossorigin="anonymous"></script>
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"/>
           
     <title>Document</title>
 </head>
@@ -64,16 +65,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2 col-sm-2 col-xs-12">
-                            <button type="button"  class="btn btn-outline-secondary m-2 ">$10</button>
+                            <button type="button"  class="btn btn-outline-secondary m-2 donate-money" id="donate-money-1">$10</button>
                         </div>
                         <div class="col-md-2 col-sm-2 col-xs-12">
-                            <button type="button" class="btn btn-outline-secondary m-2 ">$20</button>
+                            <button type="button" class="btn btn-outline-secondary m-2 donate-money" id="donate-money-2">$20</button>
                         </div>
                         <div class="col-md-2 col-sm-2 col-xs-12">
-                            <button type="button" class="btn btn-outline-secondary m-2 ">$50</button>
+                            <button type="button" class="btn btn-outline-secondary m-2 donate-money" id="donate-money-3">$50</button>
                         </div>
                         <div class="col-md-2 col-sm-2 col-xs-12">
-                            <button type="button" class="btn btn-outline-secondary m-2 ">$100</button>
+                            <button type="button" class="btn btn-outline-secondary m-2 donate-money" id="donate-money-4">$100</button>
                         </div>                    
                         <div class="input-group mb-3 col-md-4 col-sm-4 col-xs-12 mt-2">
                             <div class="input-group-prepend">
@@ -93,7 +94,7 @@
                     <div class="row clearfix">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="form-group-name">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-user" style=" top:6px;"></i>
                                 <input type="text" class="card-name" name="fname" placeholder="Name on card" action="/action_page.php">
                                 <br>
                             <small class="error-msg-name" style="color: red;"></small>
@@ -101,8 +102,8 @@
                         </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group-email">
-                            <i class="fas fa-envelope-square"></i>
-                                <input type="email" class="card-email" name="fname" placeholder="email" action="/action_page.php" >
+                            <i class="fas fa-envelope-square" style=" top:6px; "></i>
+                                <input type="email" class="card-email" name="fname" placeholder="Email" action="/action_page.php" >
                                 <br>
                             <small class="error-msg-email" style="color: red;"></small>
                             <small class="correct-msg-email" style="color: greenyellow;"></small>               
@@ -114,8 +115,8 @@
                                 <option value="Taiwan">+886</option>
                                 <option value="other">other</option>
                             </select> -->
-                            <i class="fas fa-mobile"></i>                              
-                            <input type="tel" class="card-phone" name="fname" placeholder="phone number" size="20" minlength="9" maxlength="9" action="/action_page.php">
+                            <i class="fas fa-mobile" style=" top:6px; "></i>                              
+                            <input style="font-family: Microsoft JhengHei" type="tel" class="card-phone" name="fname" placeholder="Phone number" size="20" minlength="9" maxlength="9" action="/action_page.php">
                             <br>
                             <small class="error-msg-tel" style="color: red;"></small>
                             <small class="correct-msg-tel" style="color: greenyellow;"></small>
@@ -123,8 +124,8 @@
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group-number">
-                            <i class="far fa-credit-card"></i>
-                            <input class="card-number" type="text" name="fname" placeholder="Card number" minlength="16" maxlength="16" action="/action_page.php">
+                            <i class="far fa-credit-card" style=" top:6px; "></i>
+                            <input class="card-number" type="text" name="fname" placeholder="Card number" minlength="15" maxlength="16" action="/action_page.php">
                             <br>
                             <small class="error-msg-cardnumber" style="color: red;"></small>
                             <small class="correct-msg-cardnumber" style="color: greenyellow;"></small>
@@ -133,13 +134,14 @@
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group-data">                           
                             <form >
-                                <i class="far fa-calendar-alt"></i>
+                                <i class="far fa-calendar-alt " style=" top:6px;"></i>
                                 <input type="month" class="card-date" name="bdaymonth" action="/action_page.php">
                               </form>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group-cvc2">
+                            <i class="fas fa-key" style=" top:6px; "></i>
                             <input type="text" class="card-cvc2" name="cvc2" size="4" minlength="3" maxlength="3" placeholder="cvc2">
                             <br>
                             <small class="error-msg-cardcvc2" style="color: red;"></small>
@@ -148,11 +150,11 @@
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group-card">
-                            <select  class="card-issuer" name="form_subject" >
-                                <option value="Visa Card">Visa Card</option>
-                                <option value="Master Card">Master Card</option>
-                                <option value="American Express">American Express</option>
-                                <option value="other">other</option>
+                            <select  class="card-issuer fa" name="form_subject" style=" top:6px; " >
+                                <option value="Visa Card" class="fa">&#xf1f0 Visa Card</option>
+                                <!-- <option value="Master Card" class="fa">&#xf1f1 Master Card</option> -->
+                                <option value="American Express" class="fa">&#xf1f3 American Express</option>
+                                <option value="other" class="fa">&#xf09d other</option>
                                 <!-- <option value=".category-2">Bank Transfer</option> -->
                                 <!-- <option value=".category-2">Other</option> -->
                             </select>
@@ -162,7 +164,8 @@
                                 <div class="form-group d-flex align-items-center justify-content-between">
                                     <div class="checkbox">
                                             <label>
-                                                <input type="checkbox">
+                                                <br>
+                                                <input type="checkbox">                                            
                                                 <span>I would like to donate automatically repeat each month</span>
                                             </label>
                                         </div>
