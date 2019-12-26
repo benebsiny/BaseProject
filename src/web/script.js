@@ -300,7 +300,7 @@ function test(cardNumber)
 function tel(cardphone)
 {   
     var x;
-    if((cardphone.length) !== 9 )
+    if((cardphone.length) !== 10 )
     {
 
 
