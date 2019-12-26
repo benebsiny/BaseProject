@@ -225,8 +225,10 @@ function test(cardNumber)
 function tel(cardphone)
 {   
     var x;
-    if((cardphone.length) !== 10 )
+    if((cardphone.length) !== 9 )
     {
+
+
         $('.error-msg-tel').text('輸入電話格式錯誤');
         $('.correct-msg-tel').text('');
         x = -1;

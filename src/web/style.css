@@ -28,3 +28,107 @@ a, a:hover {
     position: absolute;
 
 }
+
+i { 
+    position: absolute; 
+    left: 3px;
+    top: calc(50% - 0.5em);
+  }
+
+.form-group-phone {
+    position: relative;
+    display:inline-block;
+  }
+
+  .form-group-phone input {
+    text-indent: 20px;
+  }
+
+  .card-phone {
+    background:#FFFFFF;
+    width:175px;
+  }
+
+  .form-group-name {
+    position: relative;
+    display:inline-block;
+  }
+
+  .form-group-name input {
+    text-indent: 20px;
+  }
+
+  
+.card-name {
+    background:#FFFFFF;
+    width:175px; 
+}
+
+.form-group-email {
+    position: relative;
+    display:inline-block;
+  }
+
+  .form-group-email input {
+    text-indent: 20px;
+  }
+
+.card-email {
+    background:#FFFFFF;
+    width:175px;
+}
+
+.form-group-number {
+    position: relative;
+    display:inline-block;
+  }
+
+  .form-group-number input {
+    text-indent: 20px;
+  }
+
+.card-number {
+    background:#FFFFFF;
+    width:175px;
+}
+
+.form-group-cvc2 {
+    position: relative;
+    display:inline-block;
+  }
+
+  .form-group-cvcs input {
+    text-indent: 20px;
+  }
+
+.card-cvc2 {
+    background:#FFFFFF;
+    width:75px;
+}
+
+.form-group-issuer {
+    position: relative;
+    display:inline-block;
+  }
+
+  .form-group-issuer input {
+    text-indent: 20px;
+  }
+
+.card-issuer {
+    background:#FFFFFF;
+    width:175px;
+}
+
+.form-group-data {
+    position: relative;
+    display:inline-block;
+  }
+
+  .form-group-data input {
+    text-indent: 20px;
+  }
+
+.card-date {
+    width:175px;
+}
