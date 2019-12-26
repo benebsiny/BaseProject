@@ -16,7 +16,7 @@ $.getJSON('../news.json', (data) => {
         }
 
         if (!filter) {
-            $(`#a-${k}`).attr({'href': `./${i}`})
+            $(`#a-${k}`).attr({'href': `./${i}`});
             $(`#img-${k}`).attr({'src': data[i]['image'], 'title': data[i]['title']});
             $(`#title-${k}`).attr({'title': data[i]['title']}).text(data[i]['title']);
             k++;
